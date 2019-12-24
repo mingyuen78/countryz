@@ -7,10 +7,13 @@ import IconButton from "@material-ui/core/IconButton";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Box from "@material-ui/core/Box";
 import Snackbar from "@material-ui/core/Snackbar";
+import Backdrop from "@material-ui/core/Backdrop";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 //Because same folder.
 import CustomAppDrawer from "./CustomAppDrawer";
 import MenuIcon from "@material-ui/icons/Menu";
+import "./CustomAppBar.css";
 
 class CustomAppBar extends Component {
   constructor(props) {
@@ -46,6 +49,9 @@ class CustomAppBar extends Component {
   render() {
     return (
       <Box>
+        <Backdrop open={this.state.loading} className="customScrim">
+          <CircularProgress color="primary" className="customCircular" />
+        </Backdrop>
         <CustomAppDrawer
           left={this.state.side}
           onClose={this.handleAppDrawerClose}
@@ -78,6 +84,7 @@ class CustomAppBar extends Component {
           }}
           message={<span id="message-id">{this.state.alert}</span>}
         />
+        {/* <!-- Adsense Container --> */}
       </Box>
     );
   }

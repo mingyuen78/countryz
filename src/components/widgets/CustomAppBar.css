@@ -1,0 +1,7 @@
+.customScrim {
+  z-index: 2500 !important;
+}
+.customCircular {
+  z-index: 3000 !important;
+  color: white !important;
+}

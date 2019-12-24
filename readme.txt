@@ -1,3 +1,4 @@
+Version 1.0
 src is to be copied inside react ready folder.
 
 - dependency

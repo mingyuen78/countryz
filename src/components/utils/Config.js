@@ -1,6 +1,6 @@
 class Config {
   static getMapAPI() {
-    return "GoogleMAp API KEY";
+    return "YOUR GMAP API";
   }
 }
 

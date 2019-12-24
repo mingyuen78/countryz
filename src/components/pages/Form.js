@@ -191,8 +191,8 @@ class Form extends Component {
         />
         <Box p={2}>
           <Typography variant="h6">
-            Experimental form with calidation validation and thirdparty lib like
-            moment.js and calidation.
+            Experimental form with validation validation and thirdparty lib like
+            moment.js and simple-react-validation.
           </Typography>
           <form
             noValidate
