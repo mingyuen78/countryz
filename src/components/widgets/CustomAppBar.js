@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Box from "@material-ui/core/Box";
+import Snackbar from "@material-ui/core/Snackbar";
 
 //Because same folder.
 import CustomAppDrawer from "./CustomAppDrawer";
@@ -17,7 +18,8 @@ class CustomAppBar extends Component {
     this.state = {
       loading: this.props.loading,
       title: this.props.title,
-      side: false
+      side: false,
+      alert: this.props.alert
     };
   }
 
@@ -25,9 +27,15 @@ class CustomAppBar extends Component {
     if (this.props.loading !== prevProps.loading) {
       this.setState({ ...this.state, loading: this.props.loading });
     }
+    if (this.props.alert !== prevProps.alert) {
+      this.setState({ ...this.state, alert: this.props.alert });
+    }
   }
   handleMenuClick = evt => {
     this.setState({ side: !this.state.side });
+  };
+  handleSnackBarClose = evt => {
+    this.setState({ alert: false });
   };
   handleAboutClick = evt => {
     alert("ReactJS v1.0 Sample App");
@@ -57,6 +65,19 @@ class CustomAppBar extends Component {
           </Toolbar>
           {this.state.loading && <LinearProgress />}
         </AppBar>
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "center"
+          }}
+          key={`${"bottom"},${"center"}`}
+          open={this.state.alert}
+          onClose={this.handleSnackBarClose}
+          ContentProps={{
+            "aria-describedby": "message-id"
+          }}
+          message={<span id="message-id">{this.state.alert}</span>}
+        />
       </Box>
     );
   }

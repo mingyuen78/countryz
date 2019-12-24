@@ -10,3 +10,20 @@
   width: 100%;
   height: 400px !important;
 }
+
+.customForm {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.customInput {
+  margin-top: 1rem !important;
+}
+
+.customSpacingRight {
+  margin-right: 1rem !important;
+}
+
+.customGap {
+  height: 1rem;
+}
