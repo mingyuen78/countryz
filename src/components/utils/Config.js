@@ -1,6 +1,6 @@
 class Config {
   static getMapAPI() {
-    return "YOUR GMAP API";
+    return "AIzaSyAMNYPwaRF6WnRDec3st_rbRIiwuBZzj98";
   }
 }
 

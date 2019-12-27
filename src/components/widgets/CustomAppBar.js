@@ -84,7 +84,6 @@ class CustomAppBar extends Component {
           }}
           message={<span id="message-id">{this.state.alert}</span>}
         />
-        {/* <!-- Adsense Container --> */}
       </Box>
     );
   }

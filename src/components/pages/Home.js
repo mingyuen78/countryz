@@ -7,6 +7,7 @@ import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import blueGrey from "@material-ui/core/colors/blueGrey";
+import CAPIHelper from "../utils/CAPIHelper";
 
 class Home extends Component {
   constructor(props) {
@@ -34,6 +35,8 @@ class Home extends Component {
       height: "400px",
       marginBottom: "20px"
     };
+    this.APIHelper = new CAPIHelper();
+    this.APIHelper.type = "default";
   }
 
   displayMarkers = () => {
@@ -53,9 +56,7 @@ class Home extends Component {
   };
 
   fetchCountryCode() {
-    fetch(
-      "https://script.google.com/macros/s/AKfycbyWx63L82e2DqT50ILpYL6rpGXakBaRteP-gzqdg-tnI1-xTEs/exec"
-    )
+    fetch(this.APIHelper.constructor.googleSheetURL())
       .then(res => res.json())
       .then(
         result => {

@@ -14,6 +14,8 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import blueGrey from "@material-ui/core/colors/blueGrey";
+import CAPIHelper from "../utils/CAPIHelper";
+
 /* Third Party JS import */
 import moment from "moment";
 import SimpleReactValidator from "simple-react-validator";
@@ -44,6 +46,8 @@ class Form extends Component {
         primary: blueGrey
       }
     });
+    this.APIHelper = new CAPIHelper();
+    this.APIHelper.type = "default";
   }
 
   componentDidMount() {
@@ -130,9 +134,7 @@ class Form extends Component {
     }
   };
   fetchCountryCode() {
-    fetch(
-      "https://script.google.com/macros/s/AKfycbyWx63L82e2DqT50ILpYL6rpGXakBaRteP-gzqdg-tnI1-xTEs/exec"
-    )
+    fetch(this.APIHelper.constructor.googleSheetURL())
       .then(res => res.json())
       .then(
         result => {
